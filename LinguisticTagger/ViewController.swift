@@ -12,11 +12,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         let tagSchemes = NSLinguisticTagger.availableTagSchemes(forLanguage: "en")
         let options: NSLinguisticTagger.Options = [.joinNames, .omitWhitespace]
         let linguisticTagger = NSLinguisticTagger(tagSchemes: tagSchemes, options: Int(options.rawValue))
         
+        // INPUT DATA
         let sentence = "I, funny Siddharth, am playing happily and friendly at school at noon. Wow!"
         
         linguisticTagger.string = sentence
@@ -26,7 +27,6 @@ class ViewController: UIViewController {
             let token = (sentence as NSString).substring(with: tokenRange)
             print("\(token) -> \(tag)")
         }
+        
     }
 }
-
-
